@@ -1,0 +1,60 @@
+/* ta02.css */
+
+body{
+    background-color:#8fb4ef;
+    border-color:#001b47;
+    border-width:300px;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    background-color:#8fb4ef;
+}
+
+.img{
+    width:450px;
+    height: 250px;
+    float: left;
+}
+.outline{
+    float: left;
+    padding:10px;
+    position: relative;
+    left:15px;
+    width:97%;
+    
+    background-color:#8fb4ef;
+}
+
+p{
+    float:left;
+    padding:10px;
+    font-size: 20px;
+}
+
+.button-group button{
+    background-color: cornflowerblue; 
+    border: 1px solid blue;
+    color: white; 
+    padding:10px;
+    cursor: pointer;
+    
+    width: 49%;
+}
+
+.button-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.button-group button:not(:last-child) {
+    border-right: none;
+}
+
+.button-group button:hover {
+    background-color: darkblue;
+}
+
