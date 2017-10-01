@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Virgils Pizza</title>
+		<link rel="stylesheet" type="text/css" href="pizza.css">
+	</head>
+
+	<body>
+		<h1>Welcome to Virgils Pizza</h1>
+        
+        <div>
+            <p>Select the checkboxes and hit the "Update Cart" button to add the products to the cart.</p>
+        </div>
+        
+   <form action="pizzaP2.html">
+
+    <input type="checkbox" id="cheese" name="cheese" value="cheesePizza">Cheese $5.00<br>
+    <input type="checkbox" id="peperoni"name="pepperoni" value="pepperoniPizza">Pepperoni $5.00<br>
+    <input type="checkbox" id="sausage" name="sausage" value="sausagePizza">Sausage $6.00<br>
+    <input type="checkbox" id="supreme" name="supreme" value="supremePizza">Supreme $8.00<br>
+    <input type="checkbox" id="breadStick" name="breadStick" value="breadStick">6 Breadsticks $3.00<br> 
+            
+            
+  <button type="button" onclick="addItem()">Update Cart</button>
+       <button type="button" onclick="clearCart()">Empty Cart</button>
+       <button type="submit">View Cart</button>
+</form>
+
+        <div id="test"></div>
+        
+        
+<script>
+    
+    var pizza = JSON.parse(localStorage.getItem('pizza'));
+    var newItems = 0;
+    var totalPrice = 0;
+    
+    function clearCart(){
+        pizza = [];
+        totalPrice = 0;
+        newItems = 0;
+        localStorage.setItem('pizza', JSON.stringify(pizza));
+       display();
+        
+    }
+    
+    function display(){
+        document.getElementById("test").innerHTML = newItems + 
+                        " new items added to the cart.<br>" + pizza.length +
+                        " Total items in cart. <br /> Current Total Price: $" + 
+                        totalPrice + ".00";
+    }
+    
+    window.onload=function(){
+         
+        display();
+        
+          
+        
+    }
+    
+            function addItem() {
+                
+               newItems = 0;
+                
+                if(document.getElementById("cheese").checked){
+                    pizza.push("Cheese");
+                    newItems++;
+                    totalPrice+=5;
+                }
+                if(document.getElementById("peperoni").checked){
+                    pizza.push("Peperoni");
+                    newItems++;
+                    totalPrice+=5;
+                }
+                if(document.getElementById("sausage").checked){
+                    pizza.push("Sausage");
+                    newItems++;
+                    totalPrice+=6;
+                }
+                if(document.getElementById("supreme").checked){
+                    pizza.push("Supreme");
+                    newItems++;
+                    totalPrice+=8;
+                }
+                if(document.getElementById("breadStick").checked){
+                    pizza.push("Breadsticks");
+                    newItems++;
+                    totalPrice+=3;
+                }
+                    display();
+                
+                localStorage.setItem('pizza', JSON.stringify(pizza));
+            }
+            
+</script>
+        
+        
+	</body>
+
+</html>

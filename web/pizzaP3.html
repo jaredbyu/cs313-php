@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Virgils Pizza</title>
+		<link rel="stylesheet" type="text/css" href="pizza.css">
+	</head>
+
+	<body>
+		<h1>Checkout</h1>
+        
+  
+        <form action="pizzaP4.html" method="get">
+        
+         First name: <input type="text" name="fname"><br>
+         Last name: <input type="text" name="lname"><br>
+         City: <input type="text" name="city"><br>
+         Address: <textarea rows="4" cols="50" name="address"></textarea><br>
+        <br>
+            <button type="submit">Place Order</button>
+        </form>
+        <div id="display"></div><br>
+        
+        <button type="button" onclick="location.href='pizza.html'">Return to Shopping Page</button>
+        <button type="button" onclick="location.href='pizzaP2.html'">Return to Cart</button>
+        
+        
+<script>
+    
+    var cart = JSON.parse(localStorage.getItem('pizza'));
+    
+    
+    window.onload=function(){
+         
+         document.getElementById("display").innerHTML = "Total Items in cart: " +
+                       cart.length;
+                    
+    }
+          
+</script>
+        
+        
+	</body>
+
+</html>

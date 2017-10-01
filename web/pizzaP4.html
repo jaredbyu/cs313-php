@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Virgils Pizza</title>
+		<link rel="stylesheet" type="text/css" href="pizza.css">
+	</head>
+
+	<body>
+		<h1>Thankyou for Ordering From Virgils Pizza Today!</h1>
+        
+  
+        
+        
+        <div id="display"></div>
+        <div id="displayCart"></div><br>
+        
+        <button type="button" onclick="location.href='pizza.html'">Return to Shopping Page</button>
+       
+        
+<script>
+    
+    var cart = JSON.parse(localStorage.getItem('pizza'));
+    
+    
+    window.onload=function(){
+         
+         
+        
+        var query = window.location.search.substring(1);
+    var vars = query.split('&');
+ 
+        
+        document.getElementById("display").innerHTML = "Name: " + vars[0].split('=')[1] +
+            " " + vars[1].split('=')[1] + "<br />" +"Total Items in cart: " + cart.length + "<br />" + "<br />" + "Address: <br />" +
+            "City: " + vars[2].split('=')[1] + "<br />Street: " +
+            vars[3].split('=')[1] + "<br /> <br />Items In Cart:";
+        
+        
+         for(var i = 0; i < cart.length; i++){
+                   var label = document.createElement("label");
+                   var br = document.createElement("br");
+                    document.getElementById("displayCart").appendChild(label);
+                    label.appendChild(document.createTextNode(cart[i]));
+                  
+                   document.getElementById("displayCart").appendChild(br);
+                   
+               }
+        
+                    
+    }
+          
+</script>
+        
+        
+	</body>
+
+</html>

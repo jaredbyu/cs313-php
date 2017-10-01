@@ -1,0 +1,28 @@
+/* ta02.css */
+
+body{
+    background-color:burlywood;
+    border-color:red;
+    border-width:30px;
+    border-style:solid;
+    font-size:200%;
+     margin: auto;
+    width: 50%;
+    
+    padding: 10px;
+}
+
+button{
+    font-size: 24px;
+    padding:10px;
+}
+
+input[type='checkbox'] {
+    
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+

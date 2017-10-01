@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Virgils Pizza Cart</title>
+		<link rel="stylesheet" type="text/css" href="pizza.css">
+		
+	</head>
+
+	<body>
+		<h1 class="center">Cart</h1>
+        
+        <div>
+            <p>
+                Select the product's checkbox and click "Remove Selected Items" if you wish to remove an item/items from your cart.
+            </p>
+        </div>
+       
+    
+        <div id = "theCart"></div>
+        
+        <button type="button" onclick="removeItem()">Remove Selected Items</button>
+
+  <br>
+        <button type="button" onclick="location.href='pizza.html'">Return to Shopping Page</button>
+        <button type="button" onclick="location.href='pizzaP3.html'">Continue to Checkout</button>
+         <script>
+              var cart = JSON.parse(localStorage.getItem('pizza'));
+              var cartLength = cart.length;
+            window.onload=function addItem() {
+               
+                
+               for(var i = 0; i < cart.length; i++){
+                  var x = document.createElement("INPUT");
+                   var label = document.createElement("label");
+                   var br = document.createElement("br");
+                   
+                   
+                    x.setAttribute("type", "checkbox");
+                    x.id= i;
+                   label.id = i + 100;
+                   
+                    document.getElementById("theCart").appendChild(x);
+                    document.getElementById("theCart").appendChild(label);
+                    label.appendChild(document.createTextNode(cart[i]));
+                  
+                   document.getElementById("theCart").appendChild(br);
+                   
+               }
+            }
+            
+            function removeItem(){
+                for(var i = 0; i < cartLength; i++){
+                    var item = document.getElementById(i);
+                    if(item != null){
+                   if(item.checked){
+                        cart.splice(i, 1);
+                        item.remove();
+                        document.getElementById(i + 100).remove(); 
+                        
+                        }
+                        
+                    }
+                    
+                    localStorage.setItem('pizza', JSON.stringify(cart));
+                }
+                
+                
+            }
+            
+        </script>
+        
+	</body>
+
+</html>
