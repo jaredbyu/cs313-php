@@ -2,7 +2,8 @@
 
 try{
 $dbUrl = getenv('DATABASE_URL');
-
+echo $dbUrl;
+    
 $dbopts = parse_url($dbUrl);
 
 $dbHost = $dbopts["host"];
@@ -11,6 +12,11 @@ $dbUser = $dbopts["user"];
 $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
+    echo $dbHost + " " + $dbUser + " " + dbPassword;
+    
+    
+    
+    
 $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 }
 catch (PDOException $ex) {
