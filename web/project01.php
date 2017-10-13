@@ -44,9 +44,9 @@ $db = NULL;
 <div>
 
 <h1>Pizza</h1>
-
+<p>Pizzas</p>
 <?php
-$statement = $db->prepare("SELECT Name FROM pizza");
+$statement = $db->prepare("SELECT book, chapter, verse, content FROM scripture");
 $statement->execute();
 // Go through each result
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -55,12 +55,15 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	// row, and we can access the different values based on their
 	// name
 	echo '<p>';
-	echo $row['Name'] . '</p>';
+	echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
+	echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
+	echo '</p>';
 }
+
 ?>
 
 
 </div>
-
+<p>Hello</p>
 </body>
 </html>
