@@ -1,32 +1,37 @@
 <?php
 
 
-$dbUrl = getenv('DATABASE_URL');
-echo $dbUrl . "<br>";
-    
-$dbopts = parse_url($dbUrl);
-
-$dbHost = $dbopts["host"];
-$dbPort = $dbopts["port"];
-$dbUser = $dbopts["user"];
-$dbPassword = $dbopts["pass"];
-$dbName = ltrim($dbopts["path"],'/');
-
-    echo "Host " . $dbHost . "<br> User " . $dbUser . "<br>Pass: " . dbPassword;
-    echo "Db name: " . $dbName . "<br>";
-    
-    
-    
-$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-
-$db = mysql_connect();
-
-if(is_reasource($db)){
-    echo "Connected";
-}else
-    echo "Not connected";
-    
+$db = NULL;
+	try {
+		// default Heroku Postgres configuration URL
+		$dbUrl = getenv('DATABASE_URL');
+		if (!isset($dbUrl) || empty($dbUrl)) {
+			
+			$dbUrl = "postgres://ta_user:ta_pass@localhost:5432/scripture_ta";
+			
+		}
+		// Get the various parts of the DB Connection from the URL
+		$dbopts = parse_url($dbUrl);
+		$dbHost = $dbopts["host"];
+		$dbPort = $dbopts["port"];
+		$dbUser = $dbopts["user"];
+		$dbPassword = $dbopts["pass"];
+		$dbName = ltrim($dbopts["path"],'/');
+        
+        
+        echo $dbName;
+        
+		// Create the PDO connection
+		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
+		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	}
+	catch (PDOException $ex) {
+		// If this were in production, you would not want to echo
+		// the details of the exception.
+		echo "Error connecting to DB. Details: $ex";
+		die();
+	}
 
 ?>
 <!DOCTYPE html>
