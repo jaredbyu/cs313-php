@@ -46,21 +46,17 @@ $db = NULL;
 <h1>Pizza</h1>
 
 <?php
-$sql = $db->prepare("SELECT Name FROM pizza");
-$sql->execute();
-
-    echo "Current Pizza";
-while ($row = $sql->fetch(PDO::FETCH_ASSOC))
+$statement = $db->prepare("SELECT Name FROM pizza");
+$statement->execute();
+// Go through each result
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
 	// The variable "row" now holds the complete record for that
 	// row, and we can access the different values based on their
 	// name
 	echo '<p>';
-    
-	echo '<strong>' . $row['Name'];
-	echo '</p>';
+	echo $row['Name'] . '</p>';
 }
-
 ?>
 
 
