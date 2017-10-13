@@ -1,6 +1,6 @@
 <?php
 
-
+try{
 $dbUrl = getenv('DATABASE_URL');
 
 $dbopts = parse_url($dbUrl);
@@ -12,6 +12,13 @@ $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
 $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+}
+catch (PDOException $ex) {
+		// If this were in production, you would not want to echo
+		// the details of the exception.
+		echo "Error connecting to DB. Details: $ex";
+		die();
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,13 +32,13 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 <h1>Pizza</h1>
 
 <?php
-$sql = "SELECT id, Name FROM pizza";
+$sql = "SELECT Name FROM pizza";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["Name"]. "<br>";
+        echo "Name: " . $row["Name"]. "<br>";
     }
 } else {
     echo "0 results";
