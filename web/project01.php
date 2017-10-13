@@ -32,16 +32,19 @@ catch (PDOException $ex) {
 <h1>Pizza</h1>
 
 <?php
-$sql = "SELECT Name FROM pizza";
-$result = $db->query($sql);
+$sql = $db->prepare("SELECT Name FROM pizza");
+$sql->execute();
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "Name: " . $row["Name"]. "<br>";
-    }
-} else {
-    echo "0 results";
+    echo "Current Pizza";
+while ($row = $sql->fetch(PDO::FETCH_ASSOC))
+{
+	// The variable "row" now holds the complete record for that
+	// row, and we can access the different values based on their
+	// name
+	echo '<p>';
+    
+	echo '<strong>' . $row['Name'];
+	echo '</p>';
 }
 
 ?>
