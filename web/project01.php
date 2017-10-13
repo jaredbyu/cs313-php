@@ -2,7 +2,7 @@
 
 try{
 $dbUrl = getenv('DATABASE_URL');
-echo $dbUrl;
+echo $dbUrl + "<br>";
     
 $dbopts = parse_url($dbUrl);
 
@@ -12,8 +12,8 @@ $dbUser = $dbopts["user"];
 $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
-    echo $dbHost + " " + $dbUser + " " + dbPassword;
-    
+    echo "Other stuff" + $dbHost + " " + $dbUser + " " + dbPassword;
+    echo "Db name: " + $dbName;
     
     
     
