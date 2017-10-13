@@ -12,8 +12,8 @@ $dbUser = $dbopts["user"];
 $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
-    echo "Other stuff" . $dbHost . " " . $dbUser . " " . dbPassword;
-    echo "Db name: " . $dbName;
+    echo "Host" . $dbHost . "<br> User" . $dbUser . "<br>Pass: " . dbPassword;
+    echo "Db name: " . $dbName . "<br>";
     
     
     
