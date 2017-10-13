@@ -1,6 +1,6 @@
 <?php
 
-try{
+
 $dbUrl = getenv('DATABASE_URL');
 echo $dbUrl . "<br>";
     
@@ -12,19 +12,22 @@ $dbUser = $dbopts["user"];
 $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
-    echo "Host" . $dbHost . "<br> User" . $dbUser . "<br>Pass: " . dbPassword;
+    echo "Host " . $dbHost . "<br> User " . $dbUser . "<br>Pass: " . dbPassword;
     echo "Db name: " . $dbName . "<br>";
     
     
     
 $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-}
-catch (PDOException $ex) {
-		// If this were in production, you would not want to echo
-		// the details of the exception.
-		echo "Error connecting to DB. Details: $ex";
-		die();
-	}
+
+
+$db = mysql_connect();
+
+if(is_reasource($db)){
+    echo "Connected";
+}else
+    echo "Not connected";
+    
+
 ?>
 <!DOCTYPE html>
 <html>
