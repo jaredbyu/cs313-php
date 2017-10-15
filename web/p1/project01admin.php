@@ -1,3 +1,8 @@
+<?php
+
+require "dbConnect.php";
+$db = get_db();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +25,7 @@
          <br>
     <input type="button" onclick="" class="signbtn" value="Sign In"/>
        <input type="button" onclick="location.href='project01admin.php';" class="signbtn" value="Admin Page"/>
-    <input type="button" onclick="location.href='project01P2.html';" class="signbtn" value="Create Account"/>
+    <input type="button" onclick="location.href='project01P2.php';" class="signbtn" value="Create Account"/>
   </form>
     </div>
     <div class="dropdown">
@@ -36,12 +41,45 @@
   <input type="button" onclick="location.href='project01.php';" class="home" value="Home"/>
     
     <br>
-    <hr>
-    <br>
- 
+    <div>
+    
+    <?php
 
-<footer class="footerBot">
+$statement = $db->prepare("SELECT book, chapter, verse, content FROM scripture");
+$statement->execute();
+// Go through each result
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+	// The variable "row" now holds the complete record for that
+	// row, and we can access the different values based on their
+	// name
+	echo '<p>';
+	echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
+	echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
+	echo '</p><br><br>';
+}
         
+        
+    $statement = $db->prepare("SELECT username, display_name FROM users");
+    $statement->execute();    
+        
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+	// The variable "row" now holds the complete record for that
+	// row, and we can access the different values based on their
+	// name
+	echo '<p>';
+	echo '<strong>' . $row['username'] . ' ' . $row['display_name'] . ':';
+	echo '</strong>';
+	echo '</p><br><br>';
+}
+        
+        
+?>
+    </div>
+    
+    
+<footer class="footerBot">
         Posted by: Jared Brown
         <strong> NOTE: This Webpage is A fake Pizza Ordering Service</strong>
         
