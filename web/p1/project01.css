@@ -1,0 +1,146 @@
+/* project01.css */
+
+body{
+    background-color:black; 
+}
+
+h1{
+    font-size:50px;
+    font-style:italic;
+    text-align: center;
+     
+    
+}
+.headerC{
+    background-color:firebrick; 
+}
+
+td{
+    font-size:250%;
+}
+
+.footerBot{
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.footerStyle{
+   
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+hr{
+    border: 1px solid black;
+    width:100%;
+}
+
+.img{
+    width:450px;
+    height: 250px;
+}
+
+.center{
+    text-align: center;
+    width:75%;
+    font-family: "Georgia";
+    font-size: 30px;
+    background-color:darkgrey;
+}
+
+.loginForm{
+    float:right;
+    position: relative;
+    right:left:20px;
+    bottom:60px;
+}
+
+.home{
+    background-color: firebrick;
+    border-radius: 12px;
+    border-color: black;
+    border-width:1px;
+    float:left;
+    position: relative;
+    left:5px;
+    font-size: 26px;
+    padding: 16px; 
+}
+.home:hover{background-color:red;}
+
+
+.signbtn{
+    background-color: firebrick;
+    border-radius: 12px;
+    border-color: black;
+    border-width:1px;
+    float:right;
+    position: relative;
+    right:20px;
+    top:10px;
+    
+    padding: 12px;
+    
+    font-size: 16px;
+}
+.signbtn:hover{
+    background-color:red;
+}
+
+.dropbtn {
+    background-color: firebrick;
+    color: black;
+    padding: 16px;
+    position: relative;
+    left:30px;
+    border-radius: 12px;
+    border-color: black;
+    border-width:1px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lavenderblush;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: red}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
