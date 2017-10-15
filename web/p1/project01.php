@@ -49,7 +49,7 @@ $db = get_db();
     
 <div class="center">We Offer Many Different Types of Pizza, Drinks, and Deserts!</div> 
 
-    <br><br>
+    
 
     
     

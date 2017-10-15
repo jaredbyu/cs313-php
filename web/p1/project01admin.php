@@ -45,33 +45,16 @@ $db = get_db();
     
     <?php
 
-$statement = $db->prepare("SELECT book, chapter, verse, content FROM scripture");
-$statement->execute();
-// Go through each result
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-{
-	// The variable "row" now holds the complete record for that
-	// row, and we can access the different values based on their
-	// name
-	echo '<p>';
-	echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
-	echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
-	echo '</p><br><br>';
-}
-        
-        
+   
     $statement = $db->prepare("SELECT username, display_name FROM users");
     $statement->execute();    
         
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
-	// The variable "row" now holds the complete record for that
-	// row, and we can access the different values based on their
-	// name
-	echo '<p>';
-	echo '<strong>' . $row['username'] . ' ' . $row['display_name'] . ':';
+
+	echo '<strong>User: ' . $row['username'] . ' Display Name: ' . $row['display_name'];
 	echo '</strong>';
-	echo '</p><br><br>';
+	echo '<br>';
 }
         
         
