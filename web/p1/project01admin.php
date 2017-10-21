@@ -46,13 +46,13 @@ $db = get_db();
     <?php
 
    
-    $statement = $db->prepare("SELECT username, display_name FROM users");
+    $statement = $db->prepare("SELECT first_name, last_name FROM users");
     $statement->execute();    
         
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
 
-	echo '<strong>User: ' . $row['username'] . ' Display Name: ' . $row['display_name'];
+	echo '<strong>User: ' . $row['first_name'] . ' ' . $row['last_name'];
 	echo '</strong>';
 	echo '<br>';
 }
