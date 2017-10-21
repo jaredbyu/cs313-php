@@ -4,26 +4,26 @@
 require "dbConnect.php";
 $db = get_db();
 
-$firstName = $_POST['firstname'];
-$lastName = $_POST['lastname'];
-$middleName = $_POST['middlename'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$middlename = $_POST['middlename'];
 $state = $_POST['state'];
 $zip = $_POST['zip'];
 $street = $_POST['street'];
 $password = $_POST['password'];
 $city = $_POST['city'];
 
-echo $firstName . $lastName . ' ' . $state . ' ' . $street. $password. "    ";
+echo $firstname . $lastname . ' ' . $state . ' ' . $street. ' ' .$password. ' ';
 
 try
 {
-	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:firstName, :middleName, :lastName, :password, :city, :state, :zip, :street)';
+	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:firstname, :middlename, :lastname, :password, :city, :state, :zip, :street)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindParam(':first_name', $firstName);
-	$statement->bindParam(':middle_name', $middleName);
-	$statement->bindParam(':last_name', $lastName);
+	$statement->bindParam(':first_name', $firstname);
+	$statement->bindParam(':middle_name', $middlename);
+	$statement->bindParam(':last_name', $lastname);
     $statement->bindParam(':user_password', $password);
     $statement->bindParam(':city', $city);
     $statement->bindParam(':postal_code', $zip);
@@ -32,12 +32,13 @@ try
 	// get the new id
 	//$scriptureId = $db->lastInsertId("scripture_id_seq");
 	// Now go through each topic id in the list from the user's checkboxes
-	echo $firstName . $lastName . ' ' . $state . ' ' . $street. $password. "    ";
+	
 }
 catch (Exception $ex)
 {
 	
 	echo "Error with DB. Details: $ex";
+    echo "   End of errors";
 	die();
 }
 
