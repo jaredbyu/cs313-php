@@ -27,7 +27,7 @@
 
 <br>
     <div class="container">
-    <form action="project01Login.php" method="POST">
+    <form action="project01login.php" method="POST">
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name..">
         <br>
