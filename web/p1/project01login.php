@@ -21,13 +21,13 @@ try
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':firstName', $firstName);
-	$statement->bindValue(':middleName', $middleName);
-	$statement->bindValue(':lastName', $lastName);
-    $statement->bindValue(':password', $password);
+	$statement->bindValue(':first_name', $firstName);
+	$statement->bindValue(':middle_name', $middleName);
+	$statement->bindValue(':last_name', $lastName);
+    $statement->bindValue(':user_password', $password);
     $statement->bindValue(':city', $city);
-    $statement->bindValue(':zip', $zip);
-    $statement->bindValue(':street', $street);
+    $statement->bindValue(':postal_code', $zip);
+    $statement->bindValue(':street_address', $street);
 	$statement->execute();
 	// get the new id
 	//$scriptureId = $db->lastInsertId("scripture_id_seq");
