@@ -6,28 +6,29 @@ $db = get_db();
 
 $first_name = $_POST['firstname'];
 $last_name = $_POST['lastname'];
-$middlename = $_POST['middlename'];
-$state = $_POST['state'];
-$zip = $_POST['zip'];
-$street = $_POST['street'];
-$password = $_POST['password'];
+$middle_name = $_POST['middlename'];
+$state_province = $_POST['state'];
+$postal_code = $_POST['zip'];
+$street_address = $_POST['street'];
+$user_password = $_POST['password'];
 $city = $_POST['city'];
 
 echo $first_name . $last_name . ' ' . $state . ' ' . $street. ' ' .$password. ' ';
 
 try
 {
-	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:first_name, :middlename, :last_name, :password, :city, :state, :zip, :street)';
+	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:first_name, :middle_name, :last_name, :user_password, :city, :state_province, :postal_code, :street_address)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
 	$statement->bindParam(':first_name', $first_name);
-	$statement->bindParam(':middle_name', $middlename);
+	$statement->bindParam(':middle_name', $middle_ename);
 	$statement->bindParam(':last_name', $last_name);
-    $statement->bindParam(':user_password', $password);
+    $statement->bindParam(':user_password', $user_password);
     $statement->bindParam(':city', $city);
-    $statement->bindParam(':postal_code', $zip);
-    $statement->bindParam(':street_address', $street);
+    $statement->bindParam(':postal_code', $postal_code);
+    $statement->bindParam(':street_address', $street_address);
+    $statement->bindParam(':state_province', $state_province);
 	$statement->execute();
 	// get the new id
 	//$scriptureId = $db->lastInsertId("scripture_id_seq");
