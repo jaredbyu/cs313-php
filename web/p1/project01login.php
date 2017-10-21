@@ -4,8 +4,8 @@
 require "dbConnect.php";
 $db = get_db();
 
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
+$first_name = $_POST['firstname'];
+$last_name = $_POST['lastname'];
 $middlename = $_POST['middlename'];
 $state = $_POST['state'];
 $zip = $_POST['zip'];
@@ -13,17 +13,17 @@ $street = $_POST['street'];
 $password = $_POST['password'];
 $city = $_POST['city'];
 
-echo $firstname . $lastname . ' ' . $state . ' ' . $street. ' ' .$password. ' ';
+echo $first_name . $last_name . ' ' . $state . ' ' . $street. ' ' .$password. ' ';
 
 try
 {
-	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:firstname, :middlename, :lastname, :password, :city, :state, :zip, :street)';
+	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:first_name, :middlename, :last_name, :password, :city, :state, :zip, :street)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindParam(':first_name', $firstname);
+	$statement->bindParam(':first_name', $first_name);
 	$statement->bindParam(':middle_name', $middlename);
-	$statement->bindParam(':last_name', $lastname);
+	$statement->bindParam(':last_name', $last_name);
     $statement->bindParam(':user_password', $password);
     $statement->bindParam(':city', $city);
     $statement->bindParam(':postal_code', $zip);
