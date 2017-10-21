@@ -13,7 +13,7 @@ $street = $_POST['street'];
 $password = $_POST['password'];
 $city = $_POST['city'];
 
-echo $firstName . $lastName . ' ' . $state . ' ' . $street. $password;
+echo $firstName . $lastName . ' ' . $state . ' ' . $street. $password. "    ";
 
 try
 {
@@ -32,7 +32,7 @@ try
 	// get the new id
 	//$scriptureId = $db->lastInsertId("scripture_id_seq");
 	// Now go through each topic id in the list from the user's checkboxes
-	
+	echo $firstName . $lastName . ' ' . $state . ' ' . $street. $password. "    ";
 }
 catch (Exception $ex)
 {
@@ -43,6 +43,7 @@ catch (Exception $ex)
 
 //header("project01.php");
 //die(); 
+echo "  End of php  ";
 ?>
 <!DOCTYPE html>
 <html>
