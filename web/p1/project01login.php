@@ -13,6 +13,8 @@ $street = $_POST['street'];
 $password = $_POST['password'];
 $city = $_POST['city'];
 
+echo $firstName . $lastName . ' ' . $state . ' ' . $street. $password;
+
 try
 {
 	$query = 'INSERT INTO users(first_name, middle_name, last_name, user_password, city, state_province, postal_code, street_address) VALUES(:firstName, :middleName, :lastName, :password, :city, :state, :zip, :street)';
