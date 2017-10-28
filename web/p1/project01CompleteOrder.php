@@ -13,7 +13,7 @@ else
 
 
 $pizzaname = $_POST['Pizza'];
-$cost = 8;
+$cost = 8.00;
 $dateofsale = date("Y-m-d");
 
 echo $pizzaname. ' '. $cost .' '.$dateofsale.' '.$customer;
@@ -23,7 +23,7 @@ $db = get_db();
 
 $query = 'INSERT INTO sales(pizzaname, cost, customer, dateofsale) VALUES(:pizzaname, :cost :customer, :dateofsale)';
 $statement = $db->prepare($query);
-$statement->bindValue(':pizzaname', $pizzaname);
+$statement->bindValue(':pizzaname', $pizzzaname);
 $statement->bindValue(':cost', $cost);
 $statement->bindValue(':customer', $customer);
 $statement->bindValue(':dateofsale', $dateofsale);
