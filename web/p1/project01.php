@@ -1,7 +1,15 @@
 <?php
 
-require "dbConnect.php";
-$db = get_db();
+session_start();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+}
+else
+{
+	header("Location: project01SignIn.php");
+	die(); 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,8 +40,6 @@ $db = get_db();
   <button class="dropbtn">Menu &darr;</button>
   <div class="dropdown-content">
     <a href="project01pizzap.php">Pizza</a>
-    <a href="project01drinksp.php">Drinks</a>
-    <a href="project01dessertp.php">Desserts</a>
     </div>
         
     
@@ -47,7 +53,7 @@ $db = get_db();
      
 <img style="float:right" src="img/pizza2.jpg" alt ="img/pizza2.jpg" class="img">
     
-<div class="center">We Offer Many Different Types of Pizza, Drinks, and Deserts!</div> 
+<div class="center">We Offer Many Different Types of Pizza!</div> 
 
     
 

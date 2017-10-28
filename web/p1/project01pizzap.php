@@ -14,8 +14,6 @@
   <button class="dropbtn">Menu &darr;</button>
   <div class="dropdown-content">
     <a href="project01pizzap.php">Pizza</a>
-    <a href="project01drinksp.php">Drinks</a>
-    <a href="project01dessertp.php">Desserts</a>
         </div>
         
     

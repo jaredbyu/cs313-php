@@ -32,8 +32,6 @@ $db = get_db();
   <button class="dropbtn">Menu &darr;</button>
   <div class="dropdown-content">
     <a href="project01pizzap.php">Pizza</a>
-    <a href="project01drinksp.php">Drinks</a>
-    <a href="project01dessertp.php">Desserts</a>
     </div>
         
     
@@ -46,13 +44,13 @@ $db = get_db();
     <?php
 
    
-    $statement = $db->prepare("SELECT first_name, last_name FROM users");
+    $statement = $db->prepare("SELECT username FROM users");
     $statement->execute();    
         
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
 
-	echo '<strong>User: ' . $row['first_name'] . ' ' . $row['last_name'];
+	echo '<strong>User: ' . $row['username'];
 	echo '</strong>';
 	echo '<br>';
 }
