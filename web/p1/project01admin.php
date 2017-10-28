@@ -54,7 +54,20 @@ $db = get_db();
 	echo '</strong>';
 	echo '<br>';
 }
+     echo '<br><br><br><br><br>';   
         
+       $statement = $db->prepare("SELECT * FROM sales");
+    $statement->execute();   
+        
+        
+        echo'<strong>Pizza Type---Cost---Customer---Date of Purchase</strong><br>';
+     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+     {
+
+	echo $row['pizzaName']. '   '. $row['cost']. ' '. $row['customer']. ' '. $row['dateofsale'];
+	
+	echo '<br>';
+     }
         
 ?>
     </div>

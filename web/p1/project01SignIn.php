@@ -37,8 +37,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 		$badLogin = true;
 	}
 }
-// If we get to this point without having redirected, then it means they
-// should just see the login form.
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +46,6 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <head>
 	<div class="headerC">
 
-<h1>Sign In</h1>
     <div class="dropdown">
   <button class="dropbtn">Menu &darr;</button>
   <div class="dropdown-content">
@@ -61,17 +59,17 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <body>
 <div>
 
+
+<div class="container">
+<h1>Please sign in below:</h1>
+
+<form id="mainForm" action="project01SignIn.php" method="POST">
 <?php
 if ($badLogin)
 {
 	echo "Incorrect username or password!<br /><br />\n";
 }
 ?>
-<div class="container">
-<h1>Please sign in below:</h1>
-
-<form id="mainForm" action="project01SignIn.php" method="POST">
-
 	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
 	<label for="txtUser">Username</label>
 	<br /><br />
@@ -81,12 +79,12 @@ if ($badLogin)
 	<br /><br />
 
 	<input type="submit" value="Sign In" />
-
-</form>
-    </div>
 <br /><br />
 
 Or <a href="project01P2.php">Sign up</a> for a new account.
+</form>
+    </div>
+
 
 </div>
 
