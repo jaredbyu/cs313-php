@@ -40,39 +40,67 @@ $db = get_db();
     
     <br>
     <div>
-    
+        <button onclick="myFunction()">Show Sales</button>
+    <div id="showSales">
+        
+           <?php
+                $total = 0;
+                $total_sales = 0;
+                $statement = $db->prepare("SELECT cost FROM sales");
+                $statement->execute();   
+                echo'<strong>Total Sales: </strong>';
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                    {
+
+                        $total += $row['cost'];
+                        $total_sales++;
+                    }
+                echo $total_sales, '<br><strong>Profit: </strong>'. $total;
+            ?>
+        </div>
+        
+        
+        <button onclick="showUsers()">Show Users</button>
+        <div id="showUsers">
     <?php
 
    
     $statement = $db->prepare("SELECT username FROM users");
     $statement->execute();    
         
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-{
+             while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                {
 
-	echo '<strong>User: ' . $row['username'];
-	echo '</strong>';
-	echo '<br>';
-}
-     echo '<br><br><br><br><br>';   
+                    echo '<strong>User: ' . $row['username'];
+                    echo '</strong>';
+                    echo '<br>';
+                }
+            ?>
+            </div>
+       
         
-       $statement = $db->prepare("SELECT * FROM sales");
-    $statement->execute();   
-        
-        
-        echo'<strong>Pizza Type---Cost---Customer---Date of Purchase</strong><br>';
-     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-     {
-
-	echo $row['pizzaname']. ' '. $row['cost']. ' '. $row['customer']. ' '. $row['dateofsale'];
-	
-	echo '<br>';
-     }
-        
-?>
+    
     </div>
     
-    
+    <script>
+function myFunction(var div) {
+    var x = document.getElementById("showSales");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+        
+        function showUsers() {
+    var x = document.getElementById("showUsers");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 <footer class="footerBot">
         Posted by: Jared Brown
         <strong> NOTE: This Webpage is A fake Pizza Ordering Service</strong>
