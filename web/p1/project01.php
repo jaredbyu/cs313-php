@@ -7,6 +7,7 @@ if (isset($_SESSION['username']))
 }
 else
 {
+    $username = "Not Logged In"
 	//header("Location: project01.php");
 	///die(); 
 }
@@ -26,6 +27,9 @@ else
       <div class="loginForm">
      <form action="/action_page.php">
     
+         
+         
+         <div>Welcome: <?= $username ?></div>
     <input type="button" onclick="" class="signbtn" onclick="location.href='project01SignIn.php';"value="Sign In"/>
        <input type="button" onclick="location.href='project01admin.php';" class="signbtn" value="Admin Page"/>
     <input type="button" onclick="location.href='project01P2.php';" class="signbtn" value="Create Account"/>
@@ -48,7 +52,9 @@ else
      
 <img style="float:right" src="img/pizza2.jpg" alt ="img/pizza2.jpg" class="img">
     
-<div class="center">We Offer Many Different Types of Pizza!</div> 
+<div class="center">We Offer Many Different Types of Pizza!
+    
+    </div> 
 
     
 

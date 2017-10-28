@@ -43,6 +43,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" type="text/css" href="project01.css">
 <head>
 	<title>Sign In</title>
 </head>
