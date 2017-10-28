@@ -42,7 +42,7 @@ $db = get_db();
     <div>
         <button onclick="myFunction()">Show Sales</button>
     <div id="showSales">
-        
+        test
            <?php
                 $total = 0;
                 $total_sales = 0;
