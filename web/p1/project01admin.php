@@ -40,12 +40,9 @@ $db = get_db();
     
     <br>
     <div class ="container">
-    hi
-        <button onclick="document.write('<?php showSales(); ?>');">Show Sales</button>
-    <div id="showSales">
-        test
+   
            <?php
-        function showSales(){
+      
                 $total = 0;
                 $total_sales = 0;
                 $statement = $db->prepare("SELECT cost FROM sales");
@@ -58,13 +55,12 @@ $db = get_db();
                         $total_sales++;
                     }
                 echo $total_sales, '<br><strong>Profit: </strong>'. $total;
-        }
         
-        function showUsers(){
+        
             
             $statement = $db->prepare("SELECT username FROM users");
             $statement->execute();    
-        
+        echo "Currently Registered Users<br>";
              while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                 {
 
@@ -73,15 +69,11 @@ $db = get_db();
                     echo '<br>';
                 }
             
-        }
+        
             ?>
-        </div>
         
         
-        <button onclick="document.write('<?php showUsers(); ?>')">Show Users</button>
-        <div id="showUsers">
-   
-            </div>
+        
        
         
     
