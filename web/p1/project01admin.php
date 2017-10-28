@@ -60,12 +60,11 @@ $db = get_db();
             
             $statement = $db->prepare("SELECT username FROM users");
             $statement->execute();    
-        echo "Currently Registered Users<br>";
+        echo "<br><br>Currently Registered Users<br>";
              while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                 {
 
-                    echo '<strong>User: ' . $row['username'];
-                    echo '</strong>';
+                    echo '<strong>User:</strong> ' . $row['username'];
                     echo '<br>';
                 }
             
