@@ -45,7 +45,17 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <html>
     <link rel="stylesheet" type="text/css" href="project01.css">
 <head>
-	<title>Sign In</title>
+	<div class="headerC">
+
+<h1>Sign In</h1>
+    <div class="dropdown">
+  <button class="dropbtn">Menu &darr;</button>
+  <div class="dropdown-content">
+    <a href="project01pizzap.php">Pizza</a>
+        </div>
+        
+    
+</div>
 </head>
 
 <body>
@@ -57,7 +67,7 @@ if ($badLogin)
 	echo "Incorrect username or password!<br /><br />\n";
 }
 ?>
-
+<div class="container">
 <h1>Please sign in below:</h1>
 
 <form id="mainForm" action="project01SignIn.php" method="POST">
@@ -73,7 +83,7 @@ if ($badLogin)
 	<input type="submit" value="Sign In" />
 
 </form>
-
+    </div>
 <br /><br />
 
 Or <a href="project01P2.php">Sign up</a> for a new account.
