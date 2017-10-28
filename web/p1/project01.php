@@ -7,7 +7,7 @@ if (isset($_SESSION['username']))
 }
 else
 {
-   // $username = 'a';
+     $username = "Not Logged In";
 	//header("Location: project01.php");
 	///die(); 
 }
@@ -31,7 +31,7 @@ else
          
          <div>Welcome:
              <?php
-             //echo $username;
+             echo $username;
              ?>
          </div>
     <input type="button" onclick="" class="signbtn" onclick="location.href='project01SignIn.php';"value="Sign In"/>
