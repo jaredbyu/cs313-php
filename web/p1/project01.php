@@ -29,7 +29,7 @@ else
     
          
          
-         <div>Welcome: <?= $username ?></div>
+         <div>Welcome: <?php echo $username ?></div>
     <input type="button" onclick="" class="signbtn" onclick="location.href='project01SignIn.php';"value="Sign In"/>
        <input type="button" onclick="location.href='project01admin.php';" class="signbtn" value="Admin Page"/>
     <input type="button" onclick="location.href='project01P2.php';" class="signbtn" value="Create Account"/>
