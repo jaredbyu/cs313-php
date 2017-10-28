@@ -12,20 +12,20 @@ else
 }
 
 
-$pizzaName = $_POST['Pizza'];
+$pizzaname = $_POST['Pizza'];
 $cost = 8;
 $dateofsale = date("Y-m-d");
 
-echo $pizzaName. ' '. $cost .' '.$dateofsale.' '.$customer;
+echo $pizzaname. ' '. $cost .' '.$dateofsale.' '.$customer;
 
 require("dbConnect.php");
 $db = get_db();
 
-$query = 'INSERT INTO sales(pizzaName, cost, customer, dateofsale) VALUES(:pizzaName, :cost :customer, :dateofsale)';
+$query = 'INSERT INTO sales(pizzaname, cost, customer, dateofsale) VALUES(:pizzaname, :cost :customer, :dateofsale)';
 $statement = $db->prepare($query);
 $statement->bindValue(':customer', $customer);
 $statement->bindValue(':cost', $cost);
-$statement->bindValue(':pizzaName', $pizzaName);
+$statement->bindValue(':pizzaname', $pizzaname);
 $statement->bindValue(':dateofsale', $dateofsale);
 $statement->execute();
 
