@@ -40,8 +40,8 @@ $db = get_db();
     
     <br>
     <div class ="container">
-    
-        <button onclick="document.write('<?php showSales() ?>');">Show Sales</button>
+    hi
+        <button onclick="document.write('<?php showSales(); ?>');">Show Sales</button>
     <div id="showSales">
         test
            <?php
@@ -78,7 +78,7 @@ $db = get_db();
         </div>
         
         
-        <button onclick="document.write('<?php showUsers() ?>');">Show Users</button>
+        <button onclick="document.write('<?php showUsers(); ?>')">Show Users</button>
         <div id="showUsers">
    
             </div>
