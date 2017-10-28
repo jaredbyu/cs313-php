@@ -7,7 +7,7 @@ if (isset($_SESSION['username']))
 }
 else
 {
-	header("Location: project01SignIn.php");
+	header("Location: project01.php");
 	die(); 
 }
 ?>
