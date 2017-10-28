@@ -20,10 +20,11 @@ echo $pizzaname. ' '. $cost .' '.$dateofsale.' '.$customer;
 
 require("dbConnect.php");
 $db = get_db();
-
+echo "after db connect";
 $query = 'INSERT INTO sales(pizzaname, cost, customer, dateofsale) VALUES(:pizzaname, :cost :customer, :dateofsale)';
+echo "after insert into query";
 $statement = $db->prepare($query);
-$statement->bindValue(':pizzaname', $pizzzaname);
+$statement->bindValue(':pizzaname', $pizzaname);
 $statement->bindValue(':cost', $cost);
 $statement->bindValue(':customer', $customer);
 $statement->bindValue(':dateofsale', $dateofsale);
