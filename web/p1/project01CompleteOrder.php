@@ -20,12 +20,12 @@ echo $pizzaname. ' '. $cost .' '.$dateofsale.' '.$customer. ' ';
 
 require("dbConnect.php");
 $db = get_db();
-$query = 'INSERT INTO sales(pizzaname, cost, customer, dateofsale) VALUES(:pizzaname, :cost :customer, :dateofsale)';
+$query = 'INSERT INTO sales(pizzaname, customer) VALUES(:pizzaname, :customer)';
 $statement = $db->prepare($query);
 $statement->bindValue(':pizzaname', $pizzaname);
-$statement->bindValue(':cost', $cost);
+//$statement->bindValue(':cost', $cost);
 $statement->bindValue(':customer', $customer);
-$statement->bindValue(':dateofsale', $dateofsale);
+//$statement->bindValue(':dateofsale', $dateofsale);
 
 $result = $statement->execute();
 if($result){
