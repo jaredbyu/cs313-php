@@ -64,7 +64,7 @@ $db = get_db();
      while ($row = $statement->fetch(PDO::FETCH_ASSOC))
      {
 
-	echo $row['pizzaName']. '   '. $row['cost']. ' '. $row['customer']. ' '. $row['dateofsale'];
+	echo $row['pizzaName']. ' '. $row['cost']. ' '. $row['customer']. ' '. $row['dateofsale'];
 	
 	echo '<br>';
      }

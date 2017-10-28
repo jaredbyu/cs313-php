@@ -26,7 +26,7 @@ $statement = $db->prepare($query);
 $statement->bindValue(':customer', $customer);
 $statement->bindValue(':cost', $cost);
 $statement->bindValue(':pizzaName', $pizzaName);
-$statement->bindValue(':dateofsale', $dateOfSale);
+$statement->bindValue(':dateofsale', $dateofsale);
 $statement->execute();
 
 header("Location: project01OrderComplete.php");
