@@ -7,8 +7,8 @@ if (isset($_SESSION['username']))
 }
 else
 {
-	header("Location: project01.php");
-	die(); 
+	//header("Location: project01.php");
+	///die(); 
 }
 ?>
 <!DOCTYPE html>

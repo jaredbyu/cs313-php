@@ -1,5 +1,8 @@
 <?php
 
+require("password.php");
+echo "hello";
+
 $username = $_POST['txtUser'];
 $password = $_POST['txtPassword'];
 if (!isset($username) || $username == ""
