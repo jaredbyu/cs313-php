@@ -25,13 +25,8 @@ else
 <h1>Virgil's Pizza</h1>
       <div class="loginForm">
      <form action="/action_page.php">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username">
-        <br>
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password">
-         <br>
-    <input type="button" onclick="" class="signbtn" value="Sign In"/>
+    
+    <input type="button" onclick="" class="signbtn" onclick="location.href='project01SignIn.php';"value="Sign In"/>
        <input type="button" onclick="location.href='project01admin.php';" class="signbtn" value="Admin Page"/>
     <input type="button" onclick="location.href='project01P2.php';" class="signbtn" value="Create Account"/>
   </form>

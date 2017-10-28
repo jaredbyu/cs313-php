@@ -59,7 +59,7 @@ if ($badLogin)
 
 <h1>Please sign in below:</h1>
 
-<form id="mainForm" action="signIn.php" method="POST">
+<form id="mainForm" action="project01SignIn.php" method="POST">
 
 	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
 	<label for="txtUser">Username</label>
