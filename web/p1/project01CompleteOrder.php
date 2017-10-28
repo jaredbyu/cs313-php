@@ -23,12 +23,13 @@ $db = get_db();
 
 $query = 'INSERT INTO sales(pizzaname, cost, customer, dateofsale) VALUES(:pizzaname, :cost :customer, :dateofsale)';
 $statement = $db->prepare($query);
-$statement->bindValue(':customer', $customer);
-$statement->bindValue(':cost', $cost);
 $statement->bindValue(':pizzaname', $pizzaname);
+$statement->bindValue(':cost', $cost);
+$statement->bindValue(':customer', $customer);
 $statement->bindValue(':dateofsale', $dateofsale);
 $statement->execute();
 
+echo "at the end";
 header("Location: project01OrderComplete.php");
 die(); 
 ?>
