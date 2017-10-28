@@ -7,7 +7,7 @@ if (isset($_SESSION['username']))
 }
 else
 {
-    $username = "Not Logged In"
+    $username = "Not_Logged_In";
 	//header("Location: project01.php");
 	///die(); 
 }
