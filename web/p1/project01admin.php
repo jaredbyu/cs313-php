@@ -58,13 +58,24 @@ $db = get_db();
         
         
             
-            $statement = $db->prepare("SELECT * FROM users INNER JOIN sales ON (users.username = sales.customer);");
+            $statement = $db->prepare("SELECT * FROM users;");
             $statement->execute();    
         echo "<br><br>Currently Registered Users<br>";
              while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                 {
 
                     echo '<strong>User:</strong> ' . $row['username'];
+                    echo '<br>';
+                }
+        
+        
+         $statement = $db->prepare("SELECT * FROM users INNER JOIN sales ON (users.username = sales.customer);");
+            $statement->execute();    
+        echo "<br><br>Recent Purchases<br>";
+             while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                {
+
+                    echo '<strong>User:</strong> ' . $row['username']. '<strong>Pizza Type:</strong> '. $row['pizzaname'];
                     echo '<br>';
                 }
             
