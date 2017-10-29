@@ -70,15 +70,15 @@ if ($badLogin)
 	echo "Incorrect username or password!<br /><br />\n";
 }
 ?>
-	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
+	<input type="text" id="txtUser" name="txtUser" id="user" placeholder="Username">
 	<label for="txtUser">Username</label>
 	<br /><br />
 
-	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+	<input type="password" id="txtPassword" id ="pass" name="txtPassword" placeholder="Password">
 	<label for="txtPassword">Password</label>
 	<br /><br />
 
-	<input type="submit" value="Sign In" />
+	<input type="submit" onclick="validateForm()" value="Sign In" />
 <br /><br />
 
 Or <a href="project01P2.php">Sign up</a> for a new account.
@@ -88,5 +88,18 @@ Or <a href="project01P2.php">Sign up</a> for a new account.
 
 </div>
 
+    <script type="text/javascript">
+    function validateForm()
+    {
+        var a=document.getElementById(user);
+        var b=document.getElementById(pass);
+        if (a==null || b==null)
+        {
+            alert("Please Fill All Required Field");
+            return false;
+        }
+    }
+</script>
+    
 </body>
 </html>
