@@ -54,11 +54,11 @@ $db = get_db();
                         $total += $row['cost'];
                         $total_sales++;
                     }
-                echo $total_sales, '<br><strong>Profit: </strong>'. $total;
+                echo $total_sales, '<br><strong>Profit: $</strong>'. $total;
         
         
             
-            $statement = $db->prepare("SELECT username FROM users");
+            $statement = $db->prepare("SELECT * FROM users INNER JOIN sales ON (users.username = sales.customer);");
             $statement->execute();    
         echo "<br><br>Currently Registered Users<br>";
              while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -70,33 +70,9 @@ $db = get_db();
             
         
             ?>
-        
-        
-        
-       
-        
-    
     </div>
     
-    <script>
-function myFunction(var div) {
-    var x = document.getElementById("showSales");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-        
-        function showUsers() {
-    var x = document.getElementById("showUsers");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
+ 
 <footer class="footerBot">
         Posted by: Jared Brown
         <strong> NOTE: This Webpage is A fake Pizza Ordering Service</strong>
